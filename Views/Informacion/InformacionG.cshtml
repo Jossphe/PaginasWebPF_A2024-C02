@@ -1,0 +1,233 @@
+﻿@{
+    var preguntas = ViewData["Preguntas"] as List<ReciclajeApp.Models.PreguntaFrecuente>;
+    var documentos = ViewData["Documentos"] as List<webaplicationPFSonsonate.Models.Documento>;
+
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciclaje Electrónico</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Otros estilos específicos de la vista */
+        body {
+            background-color: #e9f5f2;
+        }
+
+        nav.navbar .navbar-nav {
+            direction: ltr; /* Asegura que el contenido dentro de los elementos esté bien orientado */
+        }
+
+        nav.navbar .navbar-brand {
+            direction: ltr; /* Ajusta la marca para mantener su orientación natural */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #214f4b;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Reciclaje Electronico</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("InformacionG", "Informacion")">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Practicas", "BuenasPracticas")">Buenas Practicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Crear", "EmpresaReciclaje")">Comparte Experiencia</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Contacto", "Home")">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container my-5">
+        <!-- Sección de Concepto -->
+        <section class="mb-5">
+            <div class="p-4 bg-light rounded shadow">
+                <h2>¿Qué son los desechos electrónicos?</h2>
+                <p>
+                    Los desechos electrónicos, conocidos como e-waste, se refieren a los dispositivos eléctricos o electrónicos
+                    que han llegado al final de su vida útil y son desechados. Estos residuos incluyen una amplia gama de productos,
+                    desde grandes electrodomésticos hasta pequeños dispositivos portátiles y accesorios.
+                </p>
+            </div>
+        </section>
+
+        <!-- Estadísticas -->
+        <section class="row mb-5">
+            <div class="col-md-4">
+                <div class="text-center card-hover bg-white shadow rounded p-4">
+                    <h3 class="text-success">53.6M</h3>
+                    <p>Toneladas de e-waste generadas en 2019</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center card-hover bg-white shadow rounded p-4">
+                    <h3 class="text-primary">74M+</h3>
+                    <p>Toneladas proyectadas para 2030</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center card-hover bg-white shadow rounded p-4">
+                    <h3 class="text-info">4K</h3>
+                    <p>Toneladas anuales en El Salvador</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabla de Ejemplos -->
+        <section class="mb-5">
+            <h2>Ejemplos de desechos electrónicos</h2>
+            <div class="table-wrapper">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Materiales peligrosos</th>
+                            <th>Beneficios del reciclaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Smartphones</td>
+                            <td>Dispositivos móviles en desuso</td>
+                            <td>Plomo, mercurio, cadmio</td>
+                            <td>Recuperación de metales preciosos</td>
+                        </tr>
+                        <tr>
+                            <td>Computadoras</td>
+                            <td>Equipos obsoletos o dañados</td>
+                            <td>Retardantes de llama bromados</td>
+                            <td>Reutilización de componentes</td>
+                        </tr>
+                        <tr>
+                            <td>Baterias Recargables</td>
+                            <td>Baterías de diversos dispositivos electronicos</td>
+                            <td>Metales pesados</td>
+                            <td>Evita contaminación y permite recuperar ciertos metales</td>
+                        </tr>
+                        <tr>
+                            <td>Electrodomesticos Pequeños</td>
+                            <td>Aparatos como microondas, tostadoras y licuadoras que, tras volverse inservivles terminan en los desechos</td>
+                            <td>Plomo, mercurio</td>
+                            <td>Reciclaje de metales y plasticos útiles</td>
+                        </tr>
+                        <tr>
+                            <td>Televisores</td>
+                            <td>Especialmente los modelos mas antiguos de tubos de rayos catódicos (CRT)</td>
+                            <td>Plomo</td>
+                            <td>Recuperacion de vidrios y metales</td>
+                        </tr>
+                        <tr>
+                            <td>Impresoras y escáners</td>
+                            <td>Equipos de oficina que se reemplzan con frecuencia</td>
+                            <td>Plomo</td>
+                            <td>Reciclaje de partes mecánicas y electronicas</td>
+                        </tr>
+                        <tr>
+                            <td>Consolas de videojuegos</td>
+                            <td>Reemplzadas por versiones mas recientes y modernas</td>
+                            <td>Plomo y Mercurio</td>
+                            <td>Recuperacion de componentes y materiales electronicos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Impacto Ambiental -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded shadow">
+                        <h2>Impacto Ambiental</h2>
+                        <p>
+                            La creciente dependencia tecnológica y el aumento en el consumo de dispositivos electrónicos han provocado
+                            un incremento significativo en la generación de desechos electrónicos.
+                        </p>
+                        <h2>Beneficio del reciclaje</h2>
+                        <p>
+                            Reciclar dispositivos electrónicos reduce la contaminación al evitar que sustancias 
+                            tóxicas dañen el medio ambiente y disminuye la extracción de recursos naturales al 
+                            reutilizar materiales valiosos. También fomenta una economía circular, reduciendo
+                            emisiones de gases de efecto invernadero, y genera empleo en el sector del reciclaje,
+                            promoviendo sostenibilidad.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="~/Documents/imgs/reciclaje.jpg" class="img-fluid rounded">
+                </div>
+            </div>
+        </section>
+        <!-- Sección de Preguntas Frecuentes -->
+        <section class="mb-5">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="accordion" id="faqAccordion">
+                @if (preguntas != null && preguntas.Count > 0)
+                {
+                    foreach (var pregunta in preguntas)
+                    {
+                        <div class="card">
+                            <div class="card-header" id="heading-@pregunta.Id">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link text-left" type="button" data-toggle="collapse" data-target="#collapse-@pregunta.Id" aria-expanded="true" aria-controls="collapse-@pregunta.Id">
+                                        @pregunta.Pregunta
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapse-@pregunta.Id" class="collapse" aria-labelledby="heading-@pregunta.Id" data-parent="#faqAccordion">
+                                <div class="card-body">
+                                    @pregunta.Respuesta
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No hay preguntas frecuentes disponibles.</p>
+                }
+            </div>
+        </section>
+
+        <!-- Sección de Documentos -->
+        <section class="mb-5">
+            <h2>Documentos Relacionados</h2>
+            @if (documentos != null && documentos.Count > 0)
+            {
+                <ul class="list-group">
+                    @foreach (var documento in documentos)
+                    {
+                        <li class="list-group-item">
+                            <a href="@documento.Url" target="_blank">@documento.Nombre</a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No hay documentos disponibles.</p>
+            }
+        </section>
+    </main>
+</body>
+</html>
+
+
+

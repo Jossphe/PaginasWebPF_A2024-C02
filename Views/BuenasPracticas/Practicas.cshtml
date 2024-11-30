@@ -1,0 +1,330 @@
+﻿@model List<ReciclajeApp.Models.BuenaPractica>
+
+@{
+    ViewData["Title"] = "Buenas Prácticas";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            background-color: white;
+        }
+
+        nav.navbar .navbar-nav {
+            direction: ltr;
+        }
+
+        nav.navbar .navbar-brand {
+            direction: ltr;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 20px 0;
+        }
+
+            .timeline::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 15px;
+                width: 2px;
+                height: 100%;
+                background-color: #214f4b;
+            }
+
+        .timeline-step {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 25px;
+        }
+
+            .timeline-step .step-marker {
+                position: absolute;
+                top: 0;
+                left: -9px;
+                width: 15px;
+                height: 15px;
+                background-color: #214f4b;
+                border-radius: 50%;
+                border: 2px solid white;
+            }
+
+            .timeline-step h4 {
+                font-size: 1.2rem;
+                color: #214f4b;
+                margin: 0 0 5px;
+            }
+
+            .timeline-step p {
+                font-size: 1rem;
+                color: #333;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #214f4b;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Reciclaje Electrónico</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("InformacionG", "Informacion")">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Practicas", "BuenasPracticas")">Buenas Practicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Crear", "EmpresaReciclaje")">Comparte Experiencia</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Contacto", "Home")">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div style="background-color: #e9f5f2; text-align: center; padding: 30px 10px; margin-bottom: 40px; border-radius: 10px;">
+        <h1 style="color: #214f4b; margin-bottom: 10px;">Consejos para el Manejo Responsable de Electrónicos</h1>
+        <p style="color: #183d3a; font-size: 18px;">Descubre cómo puedes contribuir al cuidado del medio ambiente mediante prácticas responsables con tus dispositivos electrónicos.</p>
+    </div>
+
+
+    <!-- Sección de tarjetas -->
+    <div class="card-container">
+        <div class="card">
+            <img src="~/Documents/imgs/1.png" alt="Reciclaje">
+            <div class="card-content">
+                <h2>Recicla tus Dispositivos</h2>
+                <p>Lleva tus dispositivos electrónicos obsoletos a centros de reciclaje autorizados para evitar la contaminación.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Documents/imgs/2.jpg" alt="Donación">
+            <div class="card-content">
+                <h2>Dona Equipos Útiles</h2>
+                <p>Si tus dispositivos aún funcionan, considera donarlos a organizaciones benéficas o personas necesitadas.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Documents/imgs/3.png" alt="Reparación">
+            <div class="card-content">
+                <h2>Repara en Lugar de Reemplazar</h2>
+                <p>Opta por reparar tus dispositivos electrónicos en lugar de desecharlos y comprar nuevos.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Documents/imgs/4.png" alt="Borrado de datos">
+            <div class="card-content">
+                <h2>Borra Tus Datos</h2>
+                <p>Elimina toda la información personal de tus dispositivos antes de reciclarlos o donarlos.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Documents/imgs/5.png" alt="Desecho de baterías">
+            <div class="card-content">
+                <h2>Manejo de Baterías</h2>
+                <p>Desecha las baterías de forma separada en centros que las acepten para evitar daños al medio ambiente.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Documents/imgs/6.png" alt="Reutilización">
+            <div class="card-content">
+                <h2>Reutiliza Creativamente</h2>
+                <p>Convierte componentes electrónicos en nuevos proyectos para darles una segunda vida.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Documents/imgs/7.png" alt="Productos ecológicos">
+            <div class="card-content">
+                <h2>Compra Responsablemente</h2>
+                <p>Elige productos electrónicos diseñados para ser reciclados y con menor impacto ambiental.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="~/Documents/imgs/8.png" alt="Programas comunitarios">
+            <div class="card-content">
+                <h2>Participa en Programas</h2>
+                <p>Involúcrate en iniciativas locales de reciclaje o limpieza de desechos electrónicos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Columna izquierda: Texto -->
+            <div class="col-md-8">
+                <h1 class="mb-4 text-dark">Proceso de separación de los Residuos de Aparatos Eléctricos y Electrónicos</h1>
+                <div class="timeline">
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <h4>PASO 1</h4>
+                        <p>Recogida y transporte hasta la planta de los gestores</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <h4>PASO 2</h4>
+                        <p>Recepción y almacenamiento</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <h4>PASO 3</h4>
+                        <p>Clasificación de los equipos</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <h4>PASO 4</h4>
+                        <p>Desmontaje manual y separación de componentes</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <h4>PASO 5</h4>
+                        <p>Trituración de materiales valorizables</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <h4>PASO 6</h4>
+                        <p>Separación de materiales y valorización externa</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna derecha: GIF -->
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <img src="/Documents/imgs/residuos-electronicos.gif" alt="Descripción del GIF" style="width: 100%; max-width: 300px;">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div style="background-color: #e9f5f2; padding: 20px 0;">
+        <div class="container">
+            <section>
+                <form id="filtroForm" class="mb-4">
+                    <div class="form-row">
+                        <div class="col-md-8">
+                            <label for="clasificacionDesechoSelect"><strong>Filtrar por Clasificación de Desecho:</strong></label>
+                            <select class="form-control" id="clasificacionDesechoSelect" onchange="filtrarBuenasPracticas()">
+                                <option value="">Seleccione la categoría de clasificación de desecho que desea filtrar (click)</option>
+                                <option value="Peligroso">Peligroso</option>
+                                <option value="Muy Peligroso">Muy Peligroso</option>
+                                <option value="De Menor Riesgo">De Menor Riesgo</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section id="practicasListado">
+                @if (Model != null && Model.Count > 0)
+                {
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center" style="color: #214f4b; border-radius: 10px; overflow: hidden;">
+                            <thead style="background-color: #183d3a;">
+                                <tr>
+                                    <th style="color: white;">Título</th>
+                                    <th style="color: white;">Descripción</th>
+                                    <th style="color: white;">Clasificación de Desecho</th>
+                                    <th style="color: white;">Fecha de Creación</th>
+                                    <th style="color: white;">Fecha de Actualización</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var practica in Model)
+                                {
+                                    <tr style="background-color: white; color: #214f4b;">
+                                        <td style="border-color: #b2dfdb;">@practica.Titulo</td>
+                                        <td style="border-color: #b2dfdb;">@practica.Descripcion</td>
+                                        <td style="border-color: #b2dfdb;">@practica.ClasificacionDesecho</td>
+                                        <td style="border-color: #b2dfdb;">@practica.FechaCreacion.ToShortDateString()</td>
+                                        <td style="border-color: #b2dfdb;">@(practica.FechaActualizacion?.ToShortDateString() ?? "No disponible")</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-center text-danger">No se encontraron buenas prácticas.</p>
+                }
+            </section>
+        </div>
+
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function filtrarBuenasPracticas() {
+            var clasificacionDesecho = document.getElementById("clasificacionDesechoSelect").value;
+
+            // Redirigir al controlador con el parámetro de filtro
+            window.location.href = '/BuenasPracticas/Practicas?clasificacionDesecho=' + encodeURIComponent(clasificacionDesecho);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Eliminar márgenes y paddings globales */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontal */
+}
+
+/* Ajuste para el header */
+header {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+    header video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    header .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
+        color: white;
+    }
+
+/* Estilo para el nombre de la empresa en los testimonios */
+.empresa-nombre {
+    color: #3C4247; /* Color específico */
+    font-weight: bold; /* Negrita opcional */
+}
+
+/* Estilo para el color del texto en el encabezado */
+header .content h1,
+header .content p {
+    color: #E9F5F2; /* Color amarillo */
+}
+/* Eliminación de márgenes y paddings globales */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+    header video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    header .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
+        width: 100%; /* Asegura que el texto respete todo el ancho */
+        padding: 0 10px; /* Margen interno opcional */
+    }

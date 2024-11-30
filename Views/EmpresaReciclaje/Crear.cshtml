@@ -1,0 +1,308 @@
+﻿@model ReciclajeApp.Models.EmpresaReciclaje
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Empresa de Reciclaje</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #27ae60;
+            border-color: #27ae60;
+        }
+
+            .btn-primary:hover {
+                background-color: #2ecc71;
+                border-color: #2ecc71;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        .files-section, .videos-section {
+            margin-top: 40px;
+        }
+
+        .card-video, .card-file {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+            .card-video iframe {
+                border-radius: 10px;
+                width: 100%;
+                height: 315px;
+            }
+
+        .card-file {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .card-file a {
+                color: #27ae60;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+                .card-file a:hover {
+                    text-decoration: underline;
+                }
+
+            .card-file .btn-download {
+                background-color: #27ae60;
+                color: #fff;
+                border: none;
+                padding: 8px 20px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+                .card-file .btn-download:hover {
+                    background-color: #2ecc71;
+                }
+
+        .videos-section, .files-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .files-section h3, .videos-section h3 {
+                color: #2c3e50;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+    </style>
+</head>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #214f4b; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); z-index: 999;">
+    <a class="navbar-brand text-white" href="#">Reciclaje Electronico</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="@Url.Action("InformacionG", "Informacion")">Información</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="@Url.Action("Practicas", "BuenasPracticas")">Buenas Practicas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="@Url.Action("Crear", "EmpresaReciclaje")">Comparte Experiencia</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="@Url.Action("Contacto", "Home")">Contacto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<body>
+
+    <!-- Sección de videos descargables -->
+    <div class="videos-section mt-5">
+        <h5 class="card-title">Tratamiento de Desechos Electronicos</h5>
+        <p class="card-text">El tratamiento de desechos electrónicos es un proceso fundamental para gestionar adecuadamente los residuos generados por dispositivos electrónicos como teléfonos móviles, computadoras, televisores, electrodomésticos, entre otros.</p>
+        <h3 class="section-title">Videos Educativos sobre Reciclaje</h3>
+        <div class="row">
+            <!-- Video 1 -->
+            <div class="col-md-6 mb-4">
+                <div class="card card-video">
+                    <video controls width="100%">
+                        <source src="/Documents/imgs/Reciclaje-Desechos-Electrónicos(720P_HD).mp4" type="video/mp4">
+                        Tu navegador no soporta el formato de video.
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Video sobre Reciclaje de Desechos Electrónicos</h5>
+                        <p class="card-text">Este video ofrece una visión general sobre el reciclaje de desechos electrónicos y su impacto ambiental.</p>
+                        <p><a href="/Documents/imgs/Reciclaje-Desechos-Electrónicos(720P_HD).mp4" download class="btn btn-primary">Descargar Video 1</a></p>
+                    </div>
+                    <div class="card-body">
+                        <h5>La "economía circular" como solución</h5>
+                        <p class="card-text">El reciclaje de desechos electrónicos y su reintegración en la cadena de producción es fundamental para la economía circular, un modelo económico que promueve la reutilización de materiales para reducir el consumo de recursos naturales y la generación de desechos.</p>
+                        <p><i><strong> E-waste Management in the Circular Economy, European Commission.</strong></i></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="col-md-6 mb-4">
+                <div class="card card-video">
+                    <video controls width="100%">
+                        <source src="/Documents/imgs/EcoUniverso(720P_HD).mp4" type="video/mp4">
+                        Tu navegador no soporta el formato de video.
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Video sobre EcoUniverso</h5>
+                        <p class="card-text">En este video, se exploran las mejores prácticas de reciclaje a nivel global y cómo cada uno puede contribuir.</p>
+                        <p><a href="/Documents/imgs/EcoUniverso(720P_HD).mp4" download class="btn btn-primary">Descargar Video 2</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Sección de documentos PDF descargables -->
+    <div class="files-section mt-5">
+        <h3 class="section-title">Documentos PDF Descargables</h3>
+        <div class="row">
+            <!-- Documento 1 -->
+            <div class="col-md-6 mb-4">
+                <div class="card card-file">
+                        <h3>
+                            Manejo Responsable de los
+                            Residuos Electrónicos.
+                        </h3>
+                        <p>
+                            Los Residuos Electrónicos son aquellos productos electrónicos que
+                            han llegado al final de su vida útil. Cada año se desechan o descartan
+                            millones de residuos electrónicos en todas partes al ser sustituidos
+                            por nuevos modelos.
+                        </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                            <a href="/Documents/imgs/Manejo Responsable de los Residuos Electronicos..pdf" download class="h5 text-dark">Informe sobre Reciclaje</a>
+                            <a href="/Documents/imgs/Manejo Responsable de los Residuos Electronicos..pdf" download class="btn btn-outline-success">Descargar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documento 2 -->
+            <div class="col-md-6 mb-4">
+                <div class="card card-file">
+                        <h3>
+                            Buenas prácticas para el destino final de los residuos electrónicos
+                        </h3>
+                        <p>
+                            El acelerado aumento en el consumo de dispositivos eléctricos y electrónicos ha generado un incremento en la elaboración de
+                            dichos productos.
+                        </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                          <a href="/Documents/imgs/RyRN45-jh.pdf" download class="h5 text-dark">Guía de Buenas Prácticas</a>
+                          <a href="/Documents/imgs/RyRN45-jh.pdf" download class="btn btn-outline-success">Descargar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <h2>Comparte la experiencia de tú Empresa Aplicando el Reciclaje</h2>
+        <form asp-action="Crear" method="post">
+            <div class="form-group">
+                <label for="NombreEmpresa">Nombre de la Empresa</label>
+                <input type="text" class="form-control" id="NombreEmpresa" name="NombreEmpresa" required />
+            </div>
+
+            <div class="form-group">
+                <label for="TipoDesechos">Tipo de Desechos</label>
+                <input type="text" class="form-control" id="TipoDesechos" name="TipoDesechos" required />
+            </div>
+
+            <div class="form-group">
+                <label for="CantidadDesechos">Cantidad de Desechos</label>
+                <input type="number" class="form-control" id="CantidadDesechos" name="CantidadDesechos" required />
+            </div>
+
+            <div class="form-group">
+                <label for="NombreResponsable">Nombre del Responsable</label>
+                <input type="text" class="form-control" id="NombreResponsable" name="NombreResponsable" />
+            </div>
+
+            <div class="form-group">
+                <label for="CorreoElectronico">Correo Electrónico</label>
+                <input type="email" class="form-control" id="CorreoElectronico" name="CorreoElectronico" />
+            </div>
+
+            <div class="form-group">
+                <label for="Telefono">Teléfono</label>
+                <input type="text" class="form-control" id="Telefono" name="Telefono" />
+            </div>
+
+            <div class="form-group">
+                <label for="TieneProgramaReciclaje">¿Tiene Programa de Reciclaje?</label>
+                <select class="form-control" id="TieneProgramaReciclaje" name="TieneProgramaReciclaje">
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="TipoResiduos">Tipo de Residuos</label>
+                <input type="text" class="form-control" id="TipoResiduos" name="TipoResiduos" />
+            </div>
+
+            <div class="form-group">
+                <label for="ObjetivoReciclaje">Objetivo del Reciclaje</label>
+                <textarea class="form-control" id="ObjetivoReciclaje" name="ObjetivoReciclaje" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="UsaCertificadoReciclaje">¿Usa Certificado de Reciclaje?</label>
+                <select class="form-control" id="UsaCertificadoReciclaje" name="UsaCertificadoReciclaje">
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="FechaInicioPrograma">Fecha de Inicio del Programa</label>
+                <input type="date" class="form-control" id="FechaInicioPrograma" name="FechaInicioPrograma" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

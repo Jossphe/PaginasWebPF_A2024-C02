@@ -1,0 +1,106 @@
+﻿@model List<ReciclajeApp.Models.Testimonio>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciclaje Electrónico</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="background-color: #e9f5f2;">
+    <header>
+        <!-- Video de fondo -->
+        <video autoplay muted loop>
+            <source src="~/Documents/imgs/video.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+
+        <!-- Contenido sobre el video -->
+        <div class="content text-white">
+            <h1 class="display-4">Bienvenido al Futuro del Reciclaje de Desechos Electrónicos</h1>
+            <p class="lead">Descubre cómo las buenas prácticas empresariales pueden transformar el mundo mediante el reciclaje de desechos electrónicos.</p>
+            <a href="#impacto" class="btn btn-light mt-3">Conoce Más</a>
+        </div>
+    </header>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #214f4b;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Reciclaje Electronico</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">  
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("InformacionG", "Informacion")">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Practicas", "BuenasPracticas")">Buenas Practicas</a>
+                    </li>
+                   <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Crear", "EmpresaReciclaje")">Comparte Experiencia</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="@Url.Action("Contacto", "Home")">Contacto</a>
+                    </li>                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Sección de Información General -->
+    <section id="impacto" class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/Documents/imgs/imagen_reciclaje.jpg" alt="Reciclaje de electrónicos" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <h2>Impacto Ambiental y Beneficios Económicos</h2>
+                <p>El reciclaje de desechos electrónicos contribuye a la reducción de la contaminación y ayuda a preservar recursos valiosos. Las empresas pueden beneficiarse de estas prácticas sostenibles y mejorar su imagen pública.<br />al reducir el impacto ambiental, las empresas y gobiernos no solo benefician al planeta sino que también logran ahorros a largo plazo y oportunidades de crecimiento sostenible. Promover esta sinergia es clave para un desarrollo equilibrado.</p>
+                <a href="#recursos" class="btn btn-success">Conocer más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section id="testimonios" class="bg-light py-5">
+        <div class="container text-center">
+            <h2>Testimonios de Empresas</h2>
+            <p class="mb-4">Conoce las experiencias de empresas que ya están aplicando prácticas de reciclaje.</p>
+            <div class="row">
+                @if (Model.Any())
+                {
+                    foreach (var testimonio in Model)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <blockquote class="blockquote">
+                                <p>"@testimonio.Mensaje"</p>
+                                <footer class="blockquote-footer empresa-nombre">@testimonio.Empresa</footer>
+                            </blockquote>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-muted">No hay testimonios disponibles en este momento.</p>
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Enlace a Recursos y Guías -->
+    <section id="recursos" class="text-center my-5">
+        <div class="container">
+            <h2>Información General</h2>
+            <p>Los desechos electrónicos, como teléfonos móviles, computadoras y electrodomésticos, son una de las categorías de residuos de mayor crecimiento a nivel mundial. .</p>
+            <a href="@Url.Action("Index", "Recursos")" class="btn btn-primary">Más Información</a>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
